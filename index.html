@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CampusPulse | Campus Events</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+
+      <a href="#" class="logo">
+        <span class="logo-mark">CP</span>
+        <span>CampusPulse</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#events">Events</a>
+        <a href="#how">How It Works</a>
+        <a href="#live">Live Crowd</a>
+      </nav>
+
+      <button class="organizer-btn" onclick="openCreateModal()">
+        <i class="fa-solid fa-plus"></i>
+        Organizer
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-tag">
+        <span class="live-dot"></span>
+        CAMPUS EVENTS • LIVE
+      </div>
+
+      <h1>
+        YOUR CAMPUS.<br>
+        <span>YOUR STAGE.</span>
+      </h1>
+
+      <p>
+        Discover campus events, register instantly, scan your QR,
+        and make every college moment count.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#events" class="btn primary-btn">
+          Explore Events
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <button class="btn outline-btn" onclick="openScanModal()">
+          <i class="fa-solid fa-qrcode"></i>
+          Scan QR
+        </button>
+
+      </div>
+
+      <div class="hero-stats">
+
+        <div>
+          <strong id="heroEventCount">4+</strong>
+          <span>Events</span>
+        </div>
+
+        <div>
+          <strong id="heroAttendance">0</strong>
+          <span>Attended</span>
+        </div>
+
+        <div>
+          <strong>100%</strong>
+          <span>Digital</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+    <div class="hero-visual">
+
+      <div class="floating-code-card">
+
+        <div class="code-top">
+          <div class="code-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <small>event.js</small>
+        </div>
+
+        <div class="code-lines">
+          <p><span>01</span> <b>const</b> event = {</p>
+          <p><span>02</span>&nbsp;&nbsp;name: <em>"Hackathon"</em>,</p>
+          <p><span>03</span>&nbsp;&nbsp;status: <em>"LIVE"</em>,</p>
+          <p><span>04</span>&nbsp;&nbsp;attendance: <strong>0</strong></p>
+          <p><span>05</span> };</p>
+        </div>
+
+      </div>
+
+
+      <div class="event-poster">
+
+        <div class="poster-top">
+          <span>OCT 06</span>
+          <span>2026</span>
+        </div>
+
+        <div class="poster-title">
+          <small>JAGRAN</small>
+          <h2>HACK<br>FEST</h2>
+        </div>
+
+        <div class="poster-bottom">
+          <span>BUILD • CREATE • WIN</span>
+        </div>
+
+      </div>
+
+
+      <div class="floating-ticket">
+
+        <div class="ticket-icon">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+
+        <div>
+          <small>YOUR PASS</small>
+          <strong>READY</strong>
+        </div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>TECH</span>
+      <i>✦</i>
+      <span>MUSIC</span>
+      <i>✦</i>
+      <span>SPORTS</span>
+      <i>✦</i>
+      <span>CULTURE</span>
+      <i>✦</i>
+      <span>HACKATHON</span>
+      <i>✦</i>
+      <span>TECH</span>
+      <i>✦</i>
+      <span>MUSIC</span>
+      <i>✦</i>
+      <span>SPORTS</span>
+      <i>✦</i>
+      <span>CULTURE</span>
+      <i>✦</i>
+    </div>
+  </div>
+
+
+  <!-- EVENTS -->
+  <section class="events-section" id="events">
+
+    <div class="section-heading">
+
+      <div>
+        <span class="section-label">WHAT'S HAPPENING</span>
+
+        <h2>
+          FIND YOUR <span>EVENT.</span>
+        </h2>
+      </div>
+
+      <button class="create-event-btn" onclick="openCreateModal()">
+        <i class="fa-solid fa-plus"></i>
+        Create Event
+      </button>
+
+    </div>
+
+
+    <div class="filters">
+
+      <button class="filter active" data-filter="ALL">
+        All
+      </button>
+
+      <button class="filter" data-filter="TECH">
+        Tech
+      </button>
+
+      <button class="filter" data-filter="MUSIC">
+        Music
+      </button>
+
+      <button class="filter" data-filter="SPORTS">
+        Sports
+      </button>
+
+      <button class="filter" data-filter="CULTURE">
+        Culture
+      </button>
+
+    </div>
+
+
+    <div class="event-grid" id="eventGrid">
+      <!-- Events generated by JS -->
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how">
+
+    <div class="section-heading center-heading">
+
+      <div>
+        <span class="section-label">SIMPLE FLOW</span>
+
+        <h2>
+          FROM <span>CLICK</span> TO CROWD.
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step-card">
+
+        <div class="step-number">01</div>
+
+        <div class="step-icon">
+          <i class="fa-solid fa-calendar-plus"></i>
+        </div>
+
+        <h3>Create Event</h3>
+
+        <p>
+          Organizer creates an event with date, venue,
+          capacity and category.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">02</div>
+
+        <div class="step-icon">
+          <i class="fa-solid fa-qrcode"></i>
+        </div>
+
+        <h3>Generate QR</h3>
+
+        <p>
+          A unique QR code is generated for every event.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">03</div>
+
+        <div class="step-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+
+        <h3>Scan & Register</h3>
+
+        <p>
+          Students scan the QR and complete registration.
+        </p>
+
+      </div>
+
+
+      <div class="step-card">
+
+        <div class="step-number">04</div>
+
+        <div class="step-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <h3>Track Live</h3>
+
+        <p>
+          Organizer watches attendance increase in real time.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LIVE DASHBOARD -->
+  <section class="live-section" id="live">
+
+    <div class="live-header">
+
+      <div>
+        <span class="section-label">LIVE MONITOR</span>
+
+        <h2>
+          CROWD <span>CONTROL.</span>
+        </h2>
+      </div>
+
+      <div class="live-status">
+        <span></span>
+        LIVE
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+      <!-- MAIN STATS -->
+      <div class="attendance-card">
+
+        <div class="card-top">
+
+          <div>
+            <small>HACKATHON ATTENDANCE</small>
+
+            <h3 id="liveAttendance">
+              0
+            </h3>
+
+            <p>
+              <span id="liveCapacity">0</span>
+              total capacity
+            </p>
+          </div>
+
+          <div class="big-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+        </div>
+
+
+        <div class="progress-area">
+
+          <div class="progress-info">
+            <span>Attendance</span>
+            <strong id="attendancePercent">0%</strong>
+          </div>
+
+          <div class="progress-bar">
+            <span id="attendanceProgress"></span>
+          </div>
+
+        </div>
+
+
+        <button class="simulate-btn" onclick="simulateScan()">
+          <i class="fa-solid fa-qrcode"></i>
+          Simulate Scan
+        </button>
+
+      </div>
+
+
+      <!-- RECENT SCANS -->
+      <div class="recent-card">
+
+        <div class="card-heading">
+          <h3>Recent Scans</h3>
+
+          <span id="scanCount">
+            0
+          </span>
+        </div>
+
+        <div class="scan-list" id="scanList">
+
+          <div class="empty-scan">
+            <i class="fa-solid fa-user-clock"></i>
+            <p>No attendance yet</p>
+            <small>Scans will appear here</small>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- QR -->
+      <div class="qr-live-card">
+
+        <div class="qr-box">
+
+          <div class="fake-qr">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        </div>
+
+        <h3>Scan to Attend</h3>
+
+        <p>
+          Use the event QR code to register your attendance.
+        </p>
+
+        <button onclick="openScanModal()">
+          Open Scanner
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta-section">
+
+    <div class="cta-content">
+
+      <span class="section-label">READY?</span>
+
+      <h2>
+        MAKE YOUR NEXT<br>
+        <span>EVENT COUNT.</span>
+      </h2>
+
+      <p>
+        Create your event, generate your QR,
+        and start tracking attendance.
+      </p>
+
+      <button class="btn primary-btn" onclick="openCreateModal()">
+        Create Your Event
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-main">
+
+      <div class="footer-logo">
+        <span class="logo-mark">CP</span>
+        <strong>CampusPulse</strong>
+      </div>
+
+      <p>
+        Making campus events smarter, faster and more connected.
+      </p>
+
+      <div class="footer-links">
+        <a href="#events">Events</a>
+        <a href="#how">How It Works</a>
+        <a href="#live">Live Dashboard</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 CampusPulse</span>
+      <span>Built for Campus Innovation</span>
+    </div>
+
+  </footer>
+
+
+  <!-- CREATE EVENT MODAL -->
+  <div class="modal" id="createModal">
+
+    <div class="modal-box">
+
+      <button class="close-modal" onclick="closeCreateModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="section-label">ORGANIZER</span>
+
+      <h2>Create <span>Event</span></h2>
+
+      <p class="modal-subtitle">
+        Add your event details and generate a QR.
+      </p>
+
+
+      <form id="eventForm">
+
+        <div class="input-group">
+
+          <label>Event Name</label>
+
+          <input
+            type="text"
+            id="eventName"
+            placeholder="e.g. Annual Hackathon"
+            required
+          >
+
+        </div>
+
+
+        <div class="input-row">
+
+          <div class="input-group">
+
+            <label>Category</label>
+
+            <select id="eventCategory">
+
+              <option value="TECH">Tech</option>
+              <option value="MUSIC">Music</option>
+              <option value="SPORTS">Sports</option>
+              <option value="CULTURE">Culture</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="input-group">
+
+            <label>Capacity</label>
+
+            <input
+              type="number"
+              id="eventCapacity"
+              placeholder="150"
+              min="1"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="input-row">
+
+          <div class="input-group">
+
+            <label>Date</label>
+
+            <input
+              type="date"
+              id="eventDate"
+              required
+            >
+
+          </div>
+
+
+          <div class="input-group">
+
+            <label>Time</label>
+
+            <input
+              type="time"
+              id="eventTime"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label>Venue</label>
+
+          <input
+            type="text"
+            id="eventVenue"
+            placeholder="e.g. Main Auditorium"
+            required
+          >
+
+        </div>
+
+
+        <button type="submit" class="submit-event">
+          Create Event
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- QR MODAL -->
+  <div class="modal" id="qrModal">
+
+    <div class="modal-box qr-modal-box">
+
+      <button class="close-modal" onclick="closeQRModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="section-label">EVENT QR</span>
+
+      <h2 id="qrEventName">
+        Event QR
+      </h2>
+
+      <p class="modal-subtitle">
+        Students can scan this QR to register.
+      </p>
+
+      <div id="qrcode"></div>
+
+      <button class="submit-event" onclick="closeQRModal()">
+        Done
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- SCAN MODAL -->
+  <div class="modal" id="scanModal">
+
+    <div class="modal-box scanner-modal">
+
+      <button class="close-modal" onclick="closeScanModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="section-label">STUDENT CHECK-IN</span>
+
+      <h2>
+        Scan <span>QR</span>
+      </h2>
+
+      <div class="scanner-box">
+
+        <div class="scanner-frame">
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+          <div class="scan-line"></div>
+        </div>
+
+      </div>
+
+      <p>
+        Point your camera towards the event QR code.
+      </p>
+
+      <button class="submit-event" onclick="simulateScan(); closeScanModal();">
+        Demo Scan
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
